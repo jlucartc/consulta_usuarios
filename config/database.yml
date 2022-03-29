@@ -7,6 +7,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: <%= ENV["COSULTA_USUARIOS_HOST"]%>
   username: <%= ENV["CONSULTA_USUARIOS_USERNAME"] %>
   password: <%= ENV["CONSULTA_USUARIOS_PASSWORD"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
