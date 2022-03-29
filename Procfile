@@ -1,0 +1,1 @@
+web: rake setup:cria_diretorio_imagens
