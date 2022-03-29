@@ -7,10 +7,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV["COSULTA_USUARIOS_HOST"]%>
-  username: <%= ENV["CONSULTA_USUARIOS_USERNAME"] %>
-  password: <%= ENV["CONSULTA_USUARIOS_PASSWORD"] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV.fetch("DATABASE_URL")%>
   timeout: 5000
 
 development:
@@ -26,4 +24,3 @@ test:
 
 production:
   <<: *default
-  database: <%= ENV["CONSULTA_USUARIOS_DATABASE"] %>
