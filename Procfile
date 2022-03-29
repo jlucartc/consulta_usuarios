@@ -1,0 +1,1 @@
+web: cp ./sidekiq.service /lib/systemd/system/sidekiq.service && systemctl enable sidekiq && systemctl start sidekiq
