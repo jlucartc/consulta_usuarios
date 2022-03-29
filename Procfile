@@ -1,1 +1,2 @@
-web: cp ./sidekiq.service /lib/systemd/system/sidekiq.service && systemctl enable sidekiq && systemctl start sidekiq
+web: bundle exec sidekiq && rails db:migrate:redo
+worker: rails setup:cria_diretorio_imagens
