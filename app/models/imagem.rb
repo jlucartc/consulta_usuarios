@@ -10,13 +10,13 @@ class Imagem < ApplicationRecord
 	end
 
 	def cria_arquivo
-		arquivo = File.open("app/assets/images/#{self.nome}",'wb')
+		arquivo = File.open("public/images/#{self.nome}",'wb')
 		arquivo.write(self.arquivo)
 		arquivo.close
 	end
 
 	def path
-		"images/#{self.nome}"
+		"/images/#{self.nome}"
 	end
 
 end
