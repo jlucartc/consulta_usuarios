@@ -1,0 +1,540 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+  margin: 0;
+}
+
+@media screen and (min-width: 650px){
+  #container{
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+
+    #left{
+      grid-column: 1;
+    }
+
+    #center{
+      margin: 30px 0px 0px 0px;
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+
+      .grupo-busca{
+        box-shadow: 1px 1px 2px 0px #999999;
+        border-radius: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin: 15px 0px 15px 20px;
+        display: grid;
+        grid-template-columns: 500px 100px;
+        grid-template-rows: 50px;
+
+        .input-busca{
+          padding: 10px 10px 10px 10px;
+          border: none;
+          font-size: 1.2em;
+        }
+
+        .botao-busca{
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background-color: #333333;
+          color: #ffffff;
+          border: none;
+          height: 100%;
+        }
+      }
+
+      .total-results{
+        font-family: helvetica;
+        margin: 0px 0px 20px 20px;
+      }
+
+      #lista-resultados{
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill,95px);
+        gap: 10px;
+
+        .resultado-card{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 5px;
+          overflow: hidden;
+          height: 100%;
+          background-color: #dddddd;
+          margin: 0px 20px 0px 20px;
+          display: flex;
+          flex-direction: row;
+
+          .card-imagem-container{
+            height: 95px;
+            width: 95px;
+            overflow: hidden;
+
+            .card-imagem{
+              height: 95px;
+              width: 95px;
+              background-size: cover;
+            }
+          }
+
+          .card-body{
+            font-family: helvetica;
+            margin: 10px 10px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+
+            .card-body-title{
+              margin: 0px 0px 5px 0px;
+              font-size: 1.2em;
+              font-weight: bold;
+            }
+            .card-body-subtitle{
+              margin: 0px 0px 5px 0px;
+              font-size: 1em;
+            }
+            .card-body-tag-male{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #5555ff;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+            .card-body-tag-female{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #ff5555;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+
+      #page-navigator{
+        margin: 20px 0px 20px 20px;
+
+        #previous-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        #next-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #333333;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling-active{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #ffffff;
+          text-decoration: none;
+          color: #333333;
+        }
+
+      }
+    }
+
+    #right{
+      grid-column: 3;
+    }
+
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 650px){
+  #container{
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+
+    #left{
+      grid-column: 1;
+    }
+
+    #center{
+      margin: 30px 0px 0px 0px;
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+
+      .grupo-busca{
+        box-shadow: 1px 1px 2px 0px #999999;
+        border-radius: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin: 15px 0px 15px 20px;
+        display: grid;
+        grid-template-columns: 200px 50px;
+        grid-template-rows: 50px;
+
+        .input-busca{
+          padding: 10px 10px 10px 10px;
+          border: none;
+          font-size: 1.2em;
+        }
+
+        .botao-busca{
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background-color: #333333;
+          color: #ffffff;
+          border: none;
+          height: 100%;
+        }
+      }
+
+      .total-results{
+        font-family: helvetica;
+        margin: 0px 0px 20px 20px;
+      }
+
+      #lista-resultados{
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill,95px);
+        gap: 10px;
+
+        .resultado-card{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 5px;
+          overflow: hidden;
+          height: 100%;
+          background-color: #dddddd;
+          margin: 0px 20px 0px 20px;
+          display: flex;
+          flex-direction: row;
+
+          .card-imagem-container{
+            height: 95px;
+            width: 95px;
+            overflow: hidden;
+
+            .card-imagem{
+              height: 95px;
+              width: 95px;
+              background-size: cover;
+            }
+          }
+
+          .card-body{
+            font-family: helvetica;
+            margin: 10px 10px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+
+            .card-body-title{
+              margin: 0px 0px 5px 0px;
+              font-size: 1.2em;
+              font-weight: bold;
+            }
+            .card-body-subtitle{
+              margin: 0px 0px 5px 0px;
+              font-size: 1em;
+            }
+            .card-body-tag-male{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #5555ff;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+            .card-body-tag-female{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #ff5555;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+
+      #page-navigator{
+        margin: 20px 0px 20px 20px;
+
+        #previous-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        #next-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #333333;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling-active{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #ffffff;
+          text-decoration: none;
+          color: #333333;
+        }
+
+      }
+    }
+
+    #right{
+      grid-column: 3;
+    }
+
+  }
+}
+
+@media screen and (max-width: 450px){
+  #container{
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-rows: 1fr;
+
+    #left{
+      grid-column: 1;
+    }
+
+    #center{
+      margin: 30px 0px 0px 0px;
+      grid-column: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+
+      .grupo-busca{
+        box-shadow: 1px 1px 2px 0px #999999;
+        border-radius: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin: 15px 0px 15px 20px;
+        display: grid;
+        grid-template-columns: 200px 50px;
+        grid-template-rows: 50px;
+
+        .input-busca{
+          padding: 10px 10px 10px 10px;
+          border: none;
+          font-size: 1.2em;
+        }
+
+        .botao-busca{
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background-color: #333333;
+          color: #ffffff;
+          border: none;
+          height: 100%;
+        }
+      }
+
+      .total-results{
+        font-family: helvetica;
+        margin: 0px 0px 20px 20px;
+      }
+
+      #lista-resultados{
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fill,150px);
+        gap: 10px;
+
+        .resultado-card{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 5px;
+          overflow: hidden;
+          height: 100%;
+          background-color: #dddddd;
+          margin: 0px 20px 0px 20px;
+          display: flex;
+          flex-direction: column;
+
+          .card-imagem-container{
+            width: 100%;
+            overflow: hidden;
+
+            .card-imagem{
+              width: 100%;
+              background-size: cover;
+            }
+          }
+
+          .card-body{
+            font-family: helvetica;
+            margin: 10px 10px 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+
+            .card-body-title{
+              margin: 0px 0px 5px 0px;
+              font-size: 1.2em;
+              font-weight: bold;
+            }
+            .card-body-subtitle{
+              margin: 0px 0px 5px 0px;
+              font-size: 1em;
+            }
+            .card-body-tag-male{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #5555ff;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+            .card-body-tag-female{
+              box-shadow: 1px 1px 2px 0px #999999;
+              border-radius: 5px;
+              padding: 2px 5px 2px 5px;
+              background-color: #ff5555;
+              color: #ffffff;
+              margin: 0px 0px 5px 0px;
+              font-size: 0.8em;
+            }
+          }
+        }
+      }
+
+      #page-navigator{
+        margin: 20px 0px 20px 20px;
+
+        #previous-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        #next-page{
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          background-color: #333333;
+          padding: 5px 10px 5px 10px;
+          margin: 0px 10px 0px 0px;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling{
+          display: none;
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #333333;
+          text-decoration: none;
+          color: #ffffff;
+        }
+
+        .filling-active{
+          display: none;
+          box-shadow: 1px 1px 2px 0px #999999;
+          border-radius: 2px;
+          margin: 0px 10px 0px 0px;
+          padding: 5px 10px 5px 10px;
+          background-color: #ffffff;
+          text-decoration: none;
+          color: #333333;
+        }
+
+      }
+    }
+
+    #right{
+      grid-column: 3;
+    }
+
+  }
+}
