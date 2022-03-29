@@ -8,7 +8,6 @@
 
 require "uri"
 require "net/http"
-require "pry"
 
 def request_data(uri)
 	url = URI(uri)
