@@ -9,7 +9,7 @@ class Imagem < ApplicationRecord
 	end
 
 	def path
-		tempfile = Tempfile.new(self.nome)
+		tempfile = Tempfile.new(self.nome,binmode: true)
 		tempfile.write(self.arquivo)
 		tempfile.path
 	end
