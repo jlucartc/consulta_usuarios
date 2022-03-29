@@ -5,7 +5,7 @@ class Imagem < ApplicationRecord
 	after_create :cria_arquivo
 
 	def escolhe_nome
-		self.nome = "#{self.nome.split('.').first}_#{SecureRandom.hex(20)}_#{self.nome.split('.').last}"
+		self.nome = "#{self.nome.split('.').first}_#{SecureRandom.hex(20)}_.#{self.nome.split('.').last}"
 		escolhe_nome if Imagem.where(nome: self.nome).any?
 	end
 
