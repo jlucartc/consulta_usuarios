@@ -1,3 +1,1 @@
-web: rails db:create
-web: rails db:migrate
-web: rails db:seed
+web: rails db:create && rails db:migrate && rails db:seed
