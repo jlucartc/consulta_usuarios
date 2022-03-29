@@ -11,7 +11,7 @@ class Imagem < ApplicationRecord
 	def path
 		tempfile = Tempfile.new(self.nome,"public/images/",binmode: true)
 		tempfile.write(self.arquivo)
-		tempfile.path.gsub(/.*\/public/,'')
+		tempfile.path.gsub(/.*public/,'')
 	end
 
 end
