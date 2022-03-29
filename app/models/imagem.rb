@@ -10,7 +10,7 @@ class Imagem < ApplicationRecord
 	end
 
 	def cria_arquivo
-		arquivo = File.open("assets/images/#{self.nome}",'wb')
+		arquivo = File.open("app/assets/images/#{self.nome}",'wb')
 		arquivo.write(self.arquivo)
 		arquivo.close
 	end
