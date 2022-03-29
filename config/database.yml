@@ -26,4 +26,4 @@ test:
 
 production:
   <<: *default
-  database: consulta_usuarios_production
+  database: <%= ENV["CONSULTA_USUARIOS_DATABASE"] %>
