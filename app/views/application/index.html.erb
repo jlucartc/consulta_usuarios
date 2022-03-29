@@ -6,23 +6,26 @@
 				<input type="hidden" name="current_page" value="<%= @page.present? ? @page : 1 %>">
 		</form>
 			<div class="grupo-busca">
-				<input class="input-busca" form="form-busca" type="text" name="busca" placeholder="Digite aqui o nome do usuário...">
+				<input class="input-busca" form="form-busca" type="text" name="busca" placeholder="Digite o nome do usuário...">
+				<input type="hidden" form="form-busca" name="current_page" value="1">
 				<button class="botao-busca" form="form-busca" type="submit">Buscar</button>
 			</div>
-			<p><%= @total_resultados.present? ? @total_resultados : @usuarios.count %> usuarios cadastrados</p>
-				<% if @usuarios.present? %>
-				<% @usuarios.each do |usuario| %>
-					<div class="resultado-card">
-						<div class="card-imagem-container">
-							<img src="<%= usuario.large_image.path %>" class="card-imagem">
+			<p class="total-results"><%= @total_resultados.present? ? @total_resultados : @usuarios.count %> usuarios cadastrados</p>
+			<% if @usuarios.present? %>
+				<div id="lista-resultados">
+					<% @usuarios.each do |usuario| %>
+						<div class="resultado-card">
+							<div class="card-imagem-container">
+								<img src="<%= usuario.large_image.path %>" class="card-imagem">
+							</div>
+							<div class="card-body">
+								<div class="card-body-title"><%= usuario.nome %></div>
+								<div class="card-body-subtitle"><%= usuario.email %></div>
+								<div class="card-body-tag-<%= usuario.genero %>"><%= usuario.genero.capitalize %></div>
+							</div>
 						</div>
-						<div class="card-body">
-							<div class="card-body-title"><%= usuario.nome %></div>
-							<div class="card-body-subtitle"><%= usuario.email %></div>
-							<div class="card-body-tag"><%= usuario.genero %></div>
-						</div>
-					</div>
-				<% end %>
+					<% end %>
+				</div>
 			<% end %>
 			<% if @page.present? %>
 				<div id="page-navigator">
@@ -30,7 +33,7 @@
 						<a id="previous-page" href="<%= buscar_path %>?current_page=<%= @page > 1 ? @page-1 : @page %>&busca=<%= params[:busca] %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
 						<% ((@page-3)..@page).each do |page| %>
 							<% if page <= @total_pages %>
-								<a class="filling" href="<%= buscar_path %>?current_page=<%= page %>&busca=<%= params[:busca] %>"><%= page %></button>
+								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= buscar_path %>?current_page=<%= page %>&busca=<%= params[:busca] %>"><%= page %></button>
 							<% end %>
 						<% end %>
 						<a id="next-page" href="<%= buscar_path %>?current_page=<%= @page+1 <= @total_pages ? @page+1 : @page %>&busca=<%= params[:busca] %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
@@ -38,7 +41,7 @@
 						<a id="previous-page" href="<%= buscar_path %>?current_page=<%= @page > 1 ? @page-1 : @page %>&busca=<%= params[:busca] %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
 						<% ((@page-3)+(4-@page % 4)..@page+(4-@page % 4)).each do |page| %>
 							<% if page <= @total_pages %>
-								<a class="filling" href="<%= buscar_path %>?current_page=<%= page %>&busca=<%= params[:busca] %>"><%= page %></button>
+								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= buscar_path %>?current_page=<%= page %>&busca=<%= params[:busca] %>"><%= page %></button>
 							<% end %>
 						<% end %>
 						<a id="next-page" href="<%= buscar_path %>?current_page=<%= @page+1 <= @total_pages ? @page+1 : @page %>&busca=<%= params[:busca] %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
