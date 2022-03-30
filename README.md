@@ -1,24 +1,12 @@
-# README
+# Consulta_Usuarios
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Instalação
 
-Things you may want to cover:
+1. Execute `bundle install` para instalar as gems do projeto
+2. Crie uma role no banco de dados com o nome de `consulta_usuarios`
+3. Execute os seguintes comandos para criar e popular o banco: `rails db:create`,`rails db:migrate`,`rails db:seed`
+4. Inicie o servidor da aplicação com `rvmsudo rails s -b 0.0.0.0 -p 80 -e production` ou `rails s`
 
-* Ruby version
+## Testando a aplicação
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Para testar a aplicação, execute o comando `rails test test/models/ test/system/`
