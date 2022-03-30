@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def buscar
-		params[:busca] = params[:busca].upcase.gsub(/\s+/,'.*')
+		params[:busca] = params[:busca].upcase.gsub(/\s+/,'.*').gsub(/([*.?<>+{}\[\]\^\$\\])/,'|\1').gsub('|','\\')
 		@usuarios = Usuario.all.filter{|usuario| I18n.transliterate(usuario.nome.upcase).match?(Regexp.new(".*#{params[:busca]}.*"))}
 		@usuarios = Usuario.where(id: @usuarios.pluck(:id)).page(params[:current_page]).per(10)
 		@total_pages = @usuarios.total_pages
