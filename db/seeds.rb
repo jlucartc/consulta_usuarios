@@ -28,17 +28,18 @@ usuarios = []
 imagens = []
 
 response.each do |item|
-	usuarios << {
+	usuarios << 
+	{
 		usuario: Usuario.new(
 							genero: item["gender"],
 							nome: "#{item["name"]["title"]} #{item["name"]["first"]} #{item["name"]["last"]}",
 							email: item["email"]
-		),
+						),
 		imagens: [
-			{arquivo: item["picture"]["large"], nome: item["picture"]["large"].gsub(/\.jpg/,'_large.jpg').split('/').last},
-			{arquivo: item["picture"]["medium"], nome: item["picture"]["medium"].gsub(/\.jpg/,'_medium.jpg').split('/').last},
-			{arquivo: item["picture"]["thumbnail"], nome: item["picture"]["thumbnail"].gsub(/\.jpg/,'_thumb.jpg').split('/').last}
-		]
+							{arquivo: item["picture"]["large"], nome: item["picture"]["large"].gsub(/\.jpg/,'_large.jpg').split('/').last},
+							{arquivo: item["picture"]["medium"], nome: item["picture"]["medium"].gsub(/\.jpg/,'_medium.jpg').split('/').last},
+							{arquivo: item["picture"]["thumbnail"], nome: item["picture"]["thumbnail"].gsub(/\.jpg/,'_thumb.jpg').split('/').last}
+						 ]
 	}
 end
 
