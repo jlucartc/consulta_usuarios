@@ -9,3 +9,19 @@ one: {}
 #
 two: {}
 # column: value
+
+usuario_one_img_1: {
+  id: 1,
+  usuario_id: 1,
+  nome: img1.png
+}
+usuario_one_img_2: {
+  id: 2,
+  usuario_id: 2,
+  nome: img2.png
+}
+usuario_one_img_3: {
+  id: 3,
+  usuario_id: 3,
+  nome: img3.png
+}
