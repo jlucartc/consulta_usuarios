@@ -2,9 +2,7 @@
 	<div id="left">
 	</div>
 	<div id="center">
-		<form id="form-busca" method="GET" action="<%= buscar_path %>"hidden>
-				<input type="hidden" name="page" value="<%= @page.present? ? @page : 1 %>">
-		</form>
+		<form id="form-busca" method="GET" action="<%= buscar_path %>"hidden></form>
 			<div class="grupo-busca">
 				<input class="input-busca" form="form-busca" type="text" name="busca" placeholder="Digite o nome do usuário...">
 				<input type="hidden" form="form-busca" name="page" value="1">

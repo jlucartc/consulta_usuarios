@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "application#index"
   get "/buscar", to: "application#buscar", as: "buscar"
+  get "/buscar/(:busca)/(:page)", to: "application#buscar", as: "buscar_params"
 end
