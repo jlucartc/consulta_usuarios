@@ -13,6 +13,7 @@ class ImagemTest < ActiveSupport::TestCase
   test "deve destruir as imagens caso o usuário seja destruido" do
     usuario = usuarios(:one)
     assert usuario.destroy
-    assert usuario.imagens.count == 0
+    imagens_existentes = usuario.imagens.map{|img| File.exist?("public/images/#{img.nome}") }.uniq
+    assert usuario.imagens.count == 0 and imagens_existentes.count == 1 and imagens_existentes.first == false
   end
 end
