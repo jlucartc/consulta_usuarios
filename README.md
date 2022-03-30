@@ -13,3 +13,7 @@
 ## Testando a aplicação
 
 Para testar a aplicação, execute o comando `rails test test/models/ test/system/`
+
+## Acessando a aplicação
+
+A aplicação pode ser acessada neste [link](http://52.73.177.118)
