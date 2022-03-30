@@ -2,10 +2,9 @@
 	<div id="left">
 	</div>
 	<div id="center">
-		<form id="form-busca" method="GET" action="<%= buscar_path %>"hidden></form>
+			<form id="form-busca" method="GET" action="<%= busca_inicial_path(page: 1) %>"hidden></form>
 			<div class="grupo-busca">
 				<input class="input-busca" form="form-busca" type="text" name="busca" placeholder="Digite o nome do usuário..." value="<%= params[:busca] %>">
-				<input type="hidden" form="form-busca" name="page" value="1">
 				<button class="botao-busca" form="form-busca" type="submit">Buscar</button>
 			</div>
 			<p class="total-results"><%= @total_resultados.present? ? @total_resultados : @usuarios.count %> usuarios encontrados</p>
@@ -28,21 +27,21 @@
 			<% if @page.present? %>
 				<div id="page-navigator">
 					<% if @page % 4 == 0%>
-						<a id="previous-page" href="<%= buscar_params_path(params[:busca],@page > 1 ? @page-1 : @page) %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
+						<a id="previous-page" href="<%= busca_path(busca: params[:busca],page: @page > 1 ? @page-1 : @page) %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
 						<% ((@page-3)..@page).each do |page| %>
 							<% if page <= @total_pages %>
-								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= buscar_params_path(params[:busca],page) %>"><%= page %></button>
+								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= busca_path(busca: params[:busca],page: page) %>"><%= page %></button>
 							<% end %>
 						<% end %>
-						<a id="next-page" href="<%= buscar_params_path(params[:busca],@page+1 <= @total_pages ? @page+1 : @page) %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
+						<a id="next-page" href="<%= busca_path(busca: params[:busca],page: @page+1 <= @total_pages ? @page+1 : @page) %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
 					<% else %>
-						<a id="previous-page" href="<%= buscar_params_path(params[:busca],@page > 1 ? @page-1 : @page) %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
+						<a id="previous-page" href="<%= busca_path(busca: params[:busca],page: @page > 1 ? @page-1 : @page) %>" <%= @page == 1 ? 'disabled' : '' %>>Anterior</a>
 						<% ((@page-3)+(4-@page % 4)..@page+(4-@page % 4)).each do |page| %>
 							<% if page <= @total_pages %>
-								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= buscar_params_path(params[:busca],page) %>"><%= page %></button>
+								<a class="filling<%= page == @page ? "-active" : "" %>" href="<%= busca_path(busca: params[:busca],page: page) %>"><%= page %></button>
 							<% end %>
 						<% end %>
-						<a id="next-page" href="<%= buscar_params_path(params[:busca],@page+1 <= @total_pages ? @page+1 : @page) %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
+						<a id="next-page" href="<%= busca_path(busca: params[:busca],page: @page+1 <= @total_pages ? @page+1 : @page) %>" <%= @page == @total_pages ? 'disabled' : '' %>>Próximo</a>
 					<% end %>
 				</div>
 			<% end %>

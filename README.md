@@ -20,6 +20,8 @@ A aplicação pode ser acessada neste [link](http://52.73.177.118)
 
 ## Relatório do projeto
 
+Tempo dedicado: 24 horas
+
 Sobre o modelo de dados, foram criados apenas dois models: `Usuario` e `Imagem`. Em cada model eu inseri os campos
 presentes nos dados da API, sendo que ao criar uma `Imagem`, o arquivo da imagem será criado e armazenado em `public/images`, de onde a aplicação
 poderá servir para as views. As duas entidades foram validadas apenas por diretivas do próprio Rails, de forma que não foram utilizadas chaves estrangeiras ou unicidade de campos diretamente no Postgres. Ao invés disso, foram utilizadas apenas [validações do Rails](https://guides.rubyonrails.org/active_record_validations.html).
