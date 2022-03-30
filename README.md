@@ -21,7 +21,7 @@ A aplicação pode ser acessada neste [link](http://52.73.177.118)
 ## Relatório do projeto
 
 Sobre o modelo de dados, foram criados apenas dois models: `Usuario` e `Imagem`. Em cada model eu inseri os campos
-presentes nos dados da API, sendo que ao criar uma `Imagem`, o arquivo da imagem será criado e armazanado em `public/images`, de onde a aplicação
+presentes nos dados da API, sendo que ao criar uma `Imagem`, o arquivo da imagem será criado e armazenado em `public/images`, de onde a aplicação
 poderá servir para as views. As duas entidades foram validadas apenas por diretivas do próprio Rails, de forma que não foram utilizadas chaves estrangeiras ou unicidade de campos diretamente no Postgres. Ao invés disso, foram utilizadas apenas [validações do Rails](https://guides.rubyonrails.org/active_record_validations.html).
 
 Foram criadas apenas duas views pro sistema: `index.html.erb` e `buscar.html.erb`. A primeira é a view inicial do sistema, e lista todos os usuários
@@ -29,7 +29,7 @@ cadastrados sem nenhum tipo de paginação. No momento em que o usuário faz alg
 
 O controller utilizado foi o `application_controller.rb`, que é criado por padrão no projeto. Foram criados apenas dois métodos, um para renderizar a página principal e outro para fazer a busca de usuários.
 
-Quanto às rotas, foram utilizadas três rotas: duas de busca e uma para a página inicial. A primeira rota de busca é utilizada quando o usuário precisa inserir a string de busca no input. Como o usuário vai iniciar uma pesquisa, a aplicação não tem como utilizar o ERB pra inserir o parâmetro de pesquisa diretamente no helper da rota, que nesse caso é `buscar_path`. Logo, é necessário utilizar uma rota usual, com uma query string iniciada por `?` e com parâmetros separados por `&`s. Já nos links de cada página é possível saber tanto a string de busca quanto o número da pagina, o que torna possível utilizar a rota `buscar_params_path(busca: params[:busca], page: @page)`
+Quanto às rotas, foram utilizadas três rotas: duas de busca e uma para a página inicial. A primeira rota de busca é utilizada quando o usuário precisa inserir a string de busca no input. Como o usuário vai iniciar uma pesquisa, a aplicação não tem como utilizar o ERB pra inserir o parâmetro de pesquisa diretamente no helper da rota, que nesse caso é `buscar_path`. Logo, é necessário utilizar uma rota usual, com uma query string iniciada por `?` e com parâmetros separados por `&`s. Já nos links de cada página é possível saber tanto a string de busca quanto o número da pagina, o que torna possível utilizar a rota `buscar_params_path(busca: params[:busca], page: @page)`, mantendo o estilo padrão de rotas do rails.
 
 Para criar os testes, resolvi testar três casos de uso que achei mais relevantes para o sistema. O primeiro é garantir que o número de páginas apresentado na view é o mesmo numero de elementos presentes na página da consulta ao banco. O segundo é garantir que o número de resultados apresentado
 em uma página não ultrapassa 10. Por fim, o terceiro caso verifica se ao deletar um usuário suas imagens também estão sendo excluídas. Para os dois primeiros casos, utilizei [testes de sistema](https://guides.rubyonrails.org/testing.html#system-testing) e para o ultimo fiz um [teste no model](https://guides.rubyonrails.org/testing.html#model-testing).
